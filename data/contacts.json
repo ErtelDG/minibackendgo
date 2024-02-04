@@ -1,0 +1,23 @@
+{
+   "cont12": {
+      "ID_contact": "",
+      "first_name": "Maximilian",
+      "last_name": "Mustermann",
+      "email": "mustermann@mustermann.de",
+      "phone": "0123456789"
+   },
+   "cont1707057343": {
+      "ID_contact": "cont1707057343",
+      "first_name": "Michael",
+      "last_name": "Bauer",
+      "email": "bauer@bauer.com",
+      "phone": "0123456789"
+   },
+   "cont23": {
+      "ID_contact": "",
+      "first_name": "Erika",
+      "last_name": "Superschlau",
+      "email": "erika@mustermann.de",
+      "phone": "9876543210"
+   }
+}
