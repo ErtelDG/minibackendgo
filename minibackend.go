@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"minibackend/structures"
 	"net/http"
 	"os"
@@ -16,6 +17,8 @@ func main() {
 	http.HandleFunc("/tasks", tasks)
 	http.HandleFunc("/add_contact", add_contact)
 	http.HandleFunc("/add_task", add_task)
+	http.HandleFunc("/del_task", deleteTask)
+	http.HandleFunc("/update_task", updateTask)
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		fmt.Println("TLS Handshake Error:", err)
@@ -152,6 +155,50 @@ func add_task(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(existingTasks)
 }
 
+// Handler-Funktion für den Endpunkt "/update_task"
+func updateTask(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Lese den Request-Body
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Error reading request body", http.StatusInternalServerError)
+		return
+	}
+
+	// Dekodiere den JSON-Body in einen Task
+	var task structures.Task
+	if err := json.Unmarshal(body, &task); err != nil {
+		http.Error(w, "Invalid JSON format", http.StatusBadRequest)
+		return
+	}
+
+	// Lese vorhandene Tasks aus der Datei
+	tasksFile := "./data/tasks.json"
+	existingTasks, err := readTasksFromFile(tasksFile)
+	if err != nil {
+		http.Error(w, "Error reading existing tasks", http.StatusInternalServerError)
+		return
+	}
+
+	// Aktualisiere den Task oder füge ihn hinzu
+	existingTasks[task.ID_task] = &task
+
+	// Schreibe die aktualisierten Tasks zurück in die Datei
+	if err := writeTasksToFile(existingTasks, tasksFile); err != nil {
+		http.Error(w, "Error writing updated tasks", http.StatusInternalServerError)
+		return
+	}
+
+	// Bestätige die erfolgreiche Aktualisierung
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintln(w, "Task updated successfully")
+}
+
 // Helper function to read existing contacts from a file
 func readContactsFromFile(filePath string) (map[string]*structures.Contact, error) {
 	data, err := os.ReadFile(filePath)
@@ -212,4 +259,58 @@ func writeTasksToFile(tasks map[string]*structures.Task, filePath string) error 
 	}
 
 	return nil
+}
+
+func deleteTask(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodDelete {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Lese den Request-Body, um die Task-ID zu extrahieren
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Error reading request body", http.StatusInternalServerError)
+		return
+	}
+
+	// Dekodiere den JSON-Body, um die Task-ID zu erhalten
+	var requestData struct {
+		TaskID string `json:"task_id"`
+	}
+	if err := json.Unmarshal(body, &requestData); err != nil {
+		http.Error(w, "Invalid JSON format", http.StatusBadRequest)
+		return
+	}
+
+	// Überprüfe, ob die Task-ID bereitgestellt wurde
+	if requestData.TaskID == "" {
+		http.Error(w, "Task ID not provided", http.StatusBadRequest)
+		return
+	}
+
+	// Lese die vorhandenen Aufgaben aus der Datei
+	tasksFile := "./data/tasks.json"
+	existingTasks, err := readTasksFromFile(tasksFile)
+	if err != nil {
+		http.Error(w, "Error reading existing tasks", http.StatusInternalServerError)
+		return
+	}
+
+	// Entferne die Aufgabe mit der angegebenen Task-ID
+	delete(existingTasks, requestData.TaskID)
+
+	// Schreibe die aktualisierten Aufgaben zurück in die Datei
+	err = writeTasksToFile(existingTasks, tasksFile)
+	if err != nil {
+		http.Error(w, "Error writing updated tasks", http.StatusInternalServerError)
+		return
+	}
+
+	// Bestätige, dass die Aufgabe erfolgreich gelöscht wurde
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:5173")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "Task with ID %s deleted successfully", requestData.TaskID)
 }
