@@ -17,11 +17,12 @@ type Task struct {
 	Prio        string   `json:"prio"`
 	Due_date    string   `json:"due_date"`
 	Category    string   `json:"category"`
-	Subtasks    []string `json:"subtasks"`
+	Subtasks    []Subtask `json:"subtasks"`
 }
 
 type Subtask struct {
-	ID_subtask string
-	Title      string `json:"title"`
-	Checked    bool   `json:"false"`
+    SubtaskId int64  `json:"subtaskId"`
+    Title     string `json:"title"`
+    Checked   bool   `json:"checked"`
 }
+

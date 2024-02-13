@@ -16,9 +16,11 @@ func main() {
 	http.HandleFunc("/categories", categories)
 	http.HandleFunc("/tasks", tasks)
 	http.HandleFunc("/add_contact", add_contact)
+	http.HandleFunc("/remove_contact", removeContact)
 	http.HandleFunc("/add_task", add_task)
 	http.HandleFunc("/del_task", deleteTask)
 	http.HandleFunc("/update_task", updateTask)
+
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		fmt.Println("TLS Handshake Error:", err)
@@ -313,4 +315,58 @@ func deleteTask(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Task with ID %s deleted successfully", requestData.TaskID)
+}
+
+func removeContact(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodDelete {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Lese den Request-Body, um die Contact-ID zu extrahieren
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Error reading request body", http.StatusInternalServerError)
+		return
+	}
+
+	// Dekodiere den JSON-Body, um die Contact-ID zu erhalten
+	var requestData struct {
+		ID_contact string `json:"ID_contact"`
+	}
+	if err := json.Unmarshal(body, &requestData); err != nil {
+		http.Error(w, "Invalid JSON format", http.StatusBadRequest)
+		return
+	}
+
+	// Überprüfe, ob die Contact-ID bereitgestellt wurde
+	if requestData.ID_contact == "" {
+		http.Error(w, "Contact ID not provided", http.StatusBadRequest)
+		return
+	}
+
+	// Lese die vorhandenen Aufgaben aus der Datei
+	contactsFile := "./data/contacts.json"
+	existingContact, err := readContactsFromFile(contactsFile)
+	if err != nil {
+		http.Error(w, "Error reading existing tasks", http.StatusInternalServerError)
+		return
+	}
+
+	// Entferne die Aufgabe mit der angegebenen Contact-ID
+	delete(existingContact, requestData.ID_contact)
+
+	// Schreibe die aktualisierten Aufgaben zurück in die Datei
+	err = writeContactsToFile(existingContact, contactsFile)
+	if err != nil {
+		http.Error(w, "Error writing updated tasks", http.StatusInternalServerError)
+		return
+	}
+
+	// Bestätige, dass die Aufgabe erfolgreich gelöscht wurde
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:5173")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "Task with ID %s deleted successfully", requestData.ID_contact)
 }
