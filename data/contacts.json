@@ -13,6 +13,20 @@
       "email": "spring@spring.de",
       "phone": "01658974321"
    },
+   "cont1708110681": {
+      "ID_contact": "cont1708110681",
+      "first_name": "Clark",
+      "last_name": "Kent",
+      "email": "kent@kent.de",
+      "phone": "01235698745"
+   },
+   "cont1708110940": {
+      "ID_contact": "cont1708110940",
+      "first_name": "The",
+      "last_name": "Batman",
+      "email": "batman@batman.de",
+      "phone": "015478963254"
+   },
    "cont23": {
       "ID_contact": "cont23",
       "first_name": "Erika",
