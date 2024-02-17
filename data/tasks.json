@@ -2,54 +2,36 @@
    "tk1707151555": {
       "ID_task": "tk1707151555",
       "status": "Progress",
-      "title": "Hobby",
-      "description": "Read a book",
+      "title": "Add Authentication and Authorization",
+      "description": "Implement secure user authentication and authorization to ensure only authorized users can access the dashboard.",
       "assigned": "cont23",
       "prio": "Medium",
-      "due_date": "2024-02-23",
-      "category": "cat11",
+      "due_date": "2024-03-29",
+      "category": "cat22",
       "subtasks": [
          {
             "subtaskId": 1707844963616,
-            "title": "Lesen",
-            "checked": false
-         }
-      ]
-   },
-   "tk1707151599": {
-      "ID_task": "tk1707151555",
-      "status": "Done",
-      "title": "Test Task222",
-      "description": "Create Task and send to Backend",
-      "assigned": "cont1707057343",
-      "prio": "Urgent",
-      "due_date": "2024-02-06",
-      "category": "cat11",
-      "subtasks": []
-   },
-   "tk1707327613": {
-      "ID_task": "tk1707327613",
-      "status": "Feedback",
-      "title": "ss",
-      "description": "ss",
-      "assigned": "cont1707057343",
-      "prio": "Urgent",
-      "due_date": "2024-02-08",
-      "category": "cat11",
-      "subtasks": [
-         {
-            "subtaskId": 1707841800416,
-            "title": "dd",
+            "title": "Read",
             "checked": false
          },
          {
-            "subtaskId": 1707844020806,
-            "title": "d",
-            "checked": true
+            "subtaskId": 1708161130940,
+            "title": "Choose an authentication method (e.g., JWT, OAuth).",
+            "checked": false
          },
          {
-            "subtaskId": 1707844025411,
-            "title": "eee",
+            "subtaskId": 1708161136878,
+            "title": "Implement user registration and login functionality.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161143019,
+            "title": "Set up role-based access control (RBAC).",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161149336,
+            "title": "Ensure password security (e.g., hashing, salting).",
             "checked": false
          }
       ]
@@ -57,67 +39,360 @@
    "tk1707333907": {
       "ID_task": "tk1707333907",
       "status": "ToDo",
-      "title": "Einfacher Task",
-      "description": "Beschreibung",
+      "title": "Create Frontend Design",
+      "description": "Design an appealing and user-friendly interface for the Kanban dashboard, providing intuitive user experience.",
       "assigned": "cont23",
-      "prio": "Low",
-      "due_date": "2024-03-03",
-      "category": "cat44",
-      "subtasks": []
+      "prio": "Medium",
+      "due_date": "2024-03-30",
+      "category": "cat22",
+      "subtasks": [
+         {
+            "subtaskId": 1708160961386,
+            "title": "Research UI/UX best practices.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708160969092,
+            "title": "Design wireframes/mockups for different dashboard views.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708160977482,
+            "title": "Get feedback from stakeholders on the design.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708160988597,
+            "title": "Implement responsive design principles.",
+            "checked": false
+         }
+      ]
    },
    "tk1707333953": {
       "ID_task": "tk1707333953",
       "status": "Progress",
-      "title": "Template überarbeiten3",
-      "description": "Template responsive machen2",
+      "title": "Develop Card Management Features:",
+      "description": "Implement features for creating, editing, and deleting cards on the Kanban board, including drag-and-drop functionality.",
       "assigned": "cont1707057343",
       "prio": "Low",
-      "due_date": "2024-03-10",
-      "category": "cat33",
+      "due_date": "2024-04-08",
+      "category": "cat44",
       "subtasks": [
          {
-            "subtaskId": 1707845110480,
-            "title": "Jep",
+            "subtaskId": 1708161200761,
+            "title": "Create UI components for adding/editing/deleting cards.",
+            "checked": true
+         },
+         {
+            "subtaskId": 1708161207405,
+            "title": "Implement drag-and-drop functionality using libraries like React DnD.",
+            "checked": true
+         },
+         {
+            "subtaskId": 1708161212491,
+            "title": "Add functionality for assigning cards to users.",
             "checked": false
          },
          {
-            "subtaskId": 1707845117994,
-            "title": "lol",
-            "checked": true
+            "subtaskId": 1708161219712,
+            "title": "Implement card filtering and sorting options.",
+            "checked": false
          }
       ]
    },
-   "tk1707649847": {
-      "ID_task": "tk1707649847",
-      "status": "Done",
-      "title": "Essen",
-      "description": "Essen",
-      "assigned": "cont23",
-      "prio": "Medium",
-      "due_date": "2024-03-02",
-      "category": "cat44",
-      "subtasks": []
-   },
-   "tk1707676934": {
-      "ID_task": "tk1707676934",
+   "tk1708110736": {
+      "ID_task": "tk1708110736",
       "status": "ToDo",
-      "title": "Task 1",
-      "description": "Task 1 erstellen",
-      "assigned": "cont1707078182",
-      "prio": "Low",
-      "due_date": "2024-02-15",
-      "category": "cat22",
-      "subtasks": []
-   },
-   "tk1708109671": {
-      "ID_task": "tk1708109671",
-      "status": "Feedback",
-      "title": "Feedback",
-      "description": "Feedback",
-      "assigned": "cont1707078182",
+      "title": "Implement Real-Time Updates",
+      "description": "Implement real-time update features to ensure all users can see changes to the Kanban board immediately without needing to refresh the page.",
+      "assigned": "cont1708110681",
       "prio": "Medium",
-      "due_date": "2024-03-30",
+      "due_date": "2024-04-15",
+      "category": "cat22",
+      "subtasks": [
+         {
+            "subtaskId": 1708161673736,
+            "title": "Choose a real-time communication protocol (e.g., WebSockets, Server-Sent Events).",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161678437,
+            "title": "Implement server-side logic to broadcast updates to connected clients.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161683228,
+            "title": "Update the frontend to listen for and handle real-time updates.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161688369,
+            "title": "Test real-time functionality under various conditions (e.g., high load, network latency).",
+            "checked": false
+         }
+      ]
+   },
+   "tk1708110943": {
+      "ID_task": "tk1708110943",
+      "status": "ToDo",
+      "title": "Implement Responsive Design",
+      "description": "Ensure the Kanban dashboard works well on various screen sizes and devices by implementing responsive design.",
+      "assigned": "cont1708110940",
+      "prio": "Medium",
+      "due_date": "2024-04-20",
+      "category": "cat22",
+      "subtasks": [
+         {
+            "subtaskId": 1708161711794,
+            "title": "Use CSS media queries to adapt layouts for different screen sizes.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161716556,
+            "title": "Test the dashboard on various devices and browsers.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161721895,
+            "title": "Optimize images and other assets for faster loading on mobile devices.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161727063,
+            "title": "Implement touch-friendly interactions for mobile users.",
+            "checked": false
+         }
+      ]
+   },
+   "tk1708111055": {
+      "ID_task": "tk1708111055",
+      "status": "ToDo",
+      "title": "Testing and Debugging",
+      "description": "Conduct comprehensive testing to ensure the Kanban dashboard functions smoothly, and debug any encountered errors or issues.",
+      "assigned": "cont1708110940",
+      "prio": "Medium",
+      "due_date": "2024-04-25",
+      "category": "cat33",
+      "subtasks": [
+         {
+            "subtaskId": 1708161736521,
+            "title": "Write unit tests for backend APIs and frontend components.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161741199,
+            "title": "Conduct integration testing to ensure different parts of the system work together.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161746699,
+            "title": "Perform user acceptance testing (UAT) with stakeholders.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161751823,
+            "title": "Set up error logging and monitoring to track issues in production.",
+            "checked": false
+         }
+      ]
+   },
+   "tk1708111212": {
+      "ID_task": "tk1708111212",
+      "status": "ToDo",
+      "title": "Backend Development",
+      "description": "Develop backend functionality for the Kanban dashboard, including API endpoints and database integration.",
+      "assigned": "cont1708110681",
+      "prio": "Medium",
+      "due_date": "2024-05-01",
+      "category": "cat22",
+      "subtasks": [
+         {
+            "subtaskId": 1708161763371,
+            "title": "Set up the server environment and database.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161768252,
+            "title": "Implement API endpoints for CRUD operations on cards and users.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161772937,
+            "title": "Integrate authentication and authorization middleware.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161777871,
+            "title": "Test API endpoints using Postman or similar tools.",
+            "checked": false
+         }
+      ]
+   },
+   "tk1708111336": {
+      "ID_task": "tk1708111336",
+      "status": "ToDo",
+      "title": "Frontend Development",
+      "description": "Develop frontend components and UI for the Kanban dashboard.",
+      "assigned": "cont1708110940",
+      "prio": "Low",
+      "due_date": "2024-05-10",
+      "category": "cat11",
+      "subtasks": [
+         {
+            "subtaskId": 1708161788452,
+            "title": "Set up the project with a modern frontend framework (e.g., React, Vue.js).",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161793752,
+            "title": "Develop UI components for displaying cards and managing board interactions.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161799038,
+            "title": "Implement responsive design to ensure compatibility with various devices.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161803861,
+            "title": "Test UI components across different browsers and devices.",
+            "checked": false
+         }
+      ]
+   },
+   "tk1708111488": {
+      "ID_task": "tk1708111488",
+      "status": "ToDo",
+      "title": "Documentation",
+      "description": "Create documentation for the Kanban dashboard, including user guides and API references.",
+      "assigned": "cont1708110681",
+      "prio": "Medium",
+      "due_date": "2024-05-15",
+      "category": "cat44",
+      "subtasks": [
+         {
+            "subtaskId": 1708161815723,
+            "title": "Write user guides explaining how to use the dashboard.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161820745,
+            "title": "Generate API documentation for backend endpoints.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161825432,
+            "title": "Include troubleshooting tips and FAQs.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161830157,
+            "title": "Review and update documentation regularly.",
+            "checked": false
+         }
+      ]
+   },
+   "tk1708111489": {
+      "ID_task": "tk1708111489",
+      "status": "Done",
+      "title": "Write Documentation",
+      "description": "Document the development process, architecture, and usage instructions for the Kanban dashboard to aid future maintenance and onboarding processes.",
+      "assigned": "cont1708110940",
+      "prio": "Medium",
+      "due_date": "2024-05-20",
       "category": "cat44",
       "subtasks": []
+   },
+   "tk1708111555": {
+      "ID_task": "tk1708111555",
+      "status": "Feedback",
+      "title": "Gather User Feedback",
+      "description": "Conduct user surveys or interviews to gather feedback on the usability and effectiveness of the Kanban dashboard.",
+      "assigned": "cont1708110940",
+      "prio": "Medium",
+      "due_date": "2024-05-25",
+      "category": "cat33",
+      "subtasks": [
+         {
+            "subtaskId": 1708163090024,
+            "title": "Feedback appointment",
+            "checked": false
+         }
+      ]
+   },
+   "tk1708111612": {
+      "ID_task": "tk1708111612",
+      "status": "Feedback",
+      "title": "Review Design Mockups",
+      "description": "Share design mockups with stakeholders and gather their feedback to ensure alignment with expectations and requirements.",
+      "assigned": "cont1708110681",
+      "prio": "Low",
+      "due_date": "2024-05-30",
+      "category": "cat11",
+      "subtasks": []
+   },
+   "tk1708171212": {
+      "ID_task": "tk1708111212",
+      "status": "Done",
+      "title": "Backend Development",
+      "description": "Develop backend functionality for the Kanban dashboard, including API endpoints and database integration.",
+      "assigned": "cont1708110681",
+      "prio": "Urgent",
+      "due_date": "2024-05-01",
+      "category": "cat22",
+      "subtasks": [
+         {
+            "subtaskId": 1708161763371,
+            "title": "Set up the server environment and database.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161768252,
+            "title": "Implement API endpoints for CRUD operations on cards and users.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161772937,
+            "title": "Integrate authentication and authorization middleware.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161777871,
+            "title": "Test API endpoints using Postman or similar tools.",
+            "checked": false
+         }
+      ]
+   },
+   "tk1718110736": {
+      "ID_task": "tk1708110736",
+      "status": "ToDo",
+      "title": "Implement Real-Time Updates",
+      "description": "Implement real-time update features to ensure all users can see changes to the Kanban board immediately without needing to refresh the page.",
+      "assigned": "cont1708110681",
+      "prio": "Urgent",
+      "due_date": "2024-04-15",
+      "category": "cat22",
+      "subtasks": [
+         {
+            "subtaskId": 1708161673736,
+            "title": "Choose a real-time communication protocol (e.g., WebSockets, Server-Sent Events).",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161678437,
+            "title": "Implement server-side logic to broadcast updates to connected clients.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161683228,
+            "title": "Update the frontend to listen for and handle real-time updates.",
+            "checked": false
+         },
+         {
+            "subtaskId": 1708161688369,
+            "title": "Test real-time functionality under various conditions (e.g., high load, network latency).",
+            "checked": false
+         }
+      ]
    }
 }
