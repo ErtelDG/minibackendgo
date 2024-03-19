@@ -462,10 +462,10 @@ func deleteTask(w http.ResponseWriter, r *http.Request) {
 
 	// The above code is written in Go programming language and it is setting HTTP headers for CORS
 	// (Cross-Origin Resource Sharing) and content type. It allows requests from a specific origin
-	// (http://localhost:5173), specifies allowed headers (Content-Type), sets the content type to JSON,
+	// (*), specifies allowed headers (Content-Type), sets the content type to JSON,
 	// and then writes a response to the client with a message indicating that a task with a specific ID
 	// has been deleted successfully.
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:5173")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
