@@ -59,9 +59,7 @@ func contacts(w http.ResponseWriter, r *http.Request) {
 	// requests and specifying the content type as JSON. If an error occurs during the file reading
 	// process, it will return a 404 Not Found status along with the error message.
 	read_file, err := os.ReadFile("./data/contacts.json")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	w.Header().Set("Content-Type", "application/json")
+
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		return
@@ -128,9 +126,6 @@ func add_contact(w http.ResponseWriter, r *http.Request) {
 	//  It is setting HTTP headers for CORS
 	// (Cross-Origin Resource Sharing) and content type in the response. Here's a breakdown of what each
 	// line is doing:
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(existingContacts)
 }
@@ -142,10 +137,6 @@ func categories(w http.ResponseWriter, r *http.Request) {
 	// The code snippet provided is written in Go programming language. Here's a breakdown of what the code
 	// is doing:
 	read_file, err := os.ReadFile("./data/categories.json")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	w.Header().Set("Content-Type", "application/json")
 
 	// The above code snippet is written in Go and it is handling an error condition. If the `err` variable
 	// is not `nil`, it will return a HTTP 404 Not Found error with the error message as the response body.
@@ -167,9 +158,6 @@ func categories(w http.ResponseWriter, r *http.Request) {
 // headers in a Go HTTP server.
 func tasks(w http.ResponseWriter, r *http.Request) {
 	read_file, err := os.ReadFile("./data/tasks.json")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	w.Header().Set("Content-Type", "application/json")
 
 	// The above code snippet is handling an error in a Go program. If the `err` variable is not `nil`, it
 	// will return a 404 Not Found HTTP status code along with the error message in the response.
@@ -236,9 +224,6 @@ func add_task(w http.ResponseWriter, r *http.Request) {
 	// headers as "Content-Type". It then sets the Content-Type of the response to "application/json", sets
 	// the HTTP status code to 201 (Created), and encodes an existingTasks variable as JSON and writes it
 	// to the response writer (w).
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(existingTasks)
 }
@@ -299,7 +284,6 @@ func updateTask(w http.ResponseWriter, r *http.Request) {
 	// "Content-Type" to "application/json", setting the HTTP status code to 200 (OK), and writing the
 	// message "Task updated successfully" to the response body. This code is typically used in a web
 	// server to send a JSON response indicating that a task has been updated successfully.
-	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintln(w, "Task updated successfully")
 }
@@ -465,9 +449,6 @@ func deleteTask(w http.ResponseWriter, r *http.Request) {
 	// (*), specifies allowed headers (Content-Type), sets the content type to JSON,
 	// and then writes a response to the client with a message indicating that a task with a specific ID
 	// has been deleted successfully.
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Task with ID %s deleted successfully", requestData.TaskID)
 }
@@ -539,12 +520,10 @@ func removeContact(w http.ResponseWriter, r *http.Request) {
 
 	// The above code is written in Go programming language and is setting HTTP headers for CORS
 	// (Cross-Origin Resource Sharing) and content type. It allows requests from a specific origin
-	// (http://localhost:5173), specifies allowed headers (Content-Type), sets the content type to JSON,
+	// (https://join.denniscodeworld.de), specifies allowed headers (Content-Type), sets the content type to JSON,
 	// and sends a response with a success message indicating that a task with a specific ID has been
 	// deleted successfully.
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:5173")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	w.Header().Set("Content-Type", "application/json")
+
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Task with ID %s deleted successfully", requestData.ID_contact)
 }
